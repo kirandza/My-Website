@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Supplies</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: linear-gradient(135deg, #3d00e6, #3d00e6);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2), rgba(0,0,0,0));
+            animation: rotate 10s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #cc0000;
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: left 0.3s ease;
+        }
+        nav a:hover::before {
+            left: 0;
+        }
+        section {
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.6s forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .about, .services, .contact {
+            margin-top: 2rem;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #e60000;
+            margin: 0.5rem auto;
+            border-radius: 5px;
+        }
+        .services ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .services li {
+            background: #ffe6e6;
+            border: 1px solid #ffcccc;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 0.5rem;
+            flex: 1 1 calc(45% - 1rem);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .services li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact label {
+            font-weight: bold;
+        }
+        .contact input, .contact textarea {
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        .contact input:focus, .contact textarea:focus {
+            border-color: #e60000;
+            outline: none;
+        }
+        .contact button {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            background: #e60000;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255,255,255,0.2);
+            transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+        .contact button:hover::before {
+            width: 0;
+            height: 0;
+            top: 50%;
+            left: 50%;
+        }
+        .contact button:hover {
+            background: #cc0000;
+            transform: translateY(-3px);
+        }
+        .contact button:active {
+            transform: translateY(1px);
+        }
+        footer {
+            background: #660000;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), rgba(0,0,0,0));
+            animation: rotate 15s linear infinite reverse;
+        }
+        .logo {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 150px; /* Increased logo size */
+            z-index: 1000; /* Ensure the logo is on top */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Company Logo" style="display: block; margin: 0 auto; max-width: 100%;">
+    </header>
+    <img src="logo.jpg" alt="Company Logo" class="logo">
+
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#products">Products</a> <!-- Updated href to match section id -->
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>ENERGY SUPPLIES & SERVICES L.L.C was founded in 1987 due to a foreseen need in the local and regional market for 
+            professional kitchen equipment trading. This professionalism does not only come with best practice trading and 
+            services but with industry know-how to provide the right solution as per client’s needs. We offer unparalleled 
+            international market expertise to hospitality & laundry equipment of various USA, EUROPEAN brands.
+
+            We are a supplier of all major brands of commercial kitchen, refrigeration, bakery, operating hypermarket/supermarket 
+            cold rooms, stainless steel custom fabrication & laundry equipment. Since our inception, we focused on quality
+             products & upscale projects.
+            
+            Our projects divisions are fast food chains, catering companies, rigs – onshore, offshore, hospitals, hotels & 
+            complete hospitality division. We continue to strive for valued-added services while maintaining the best quality
+             products, on time with reasonable prices in the industry with specialization on TURN KEY PROJECTS.
+            
+            ENERGY SUPPLIES & SERVICES L.L.C understands their requirement & suggesting the apt option, not just selling.
+             To be the premier branded corporations we are distinctive, highly innovative, and successful in serving our 
+             customers by giving more value, whether measured by price, performance, or quality of service.</p>
+    </section>
+
+    <section id="products" class="products">
+        <h2>Products</h2>
+        <div style="text-align: center; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: #e60000;">Cooking Equipment</h3>
+            <img src="cooking equipment.png" 
+                 alt="Cooking Equipment" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;
+                  box-shadow: 0 4px 10px rgb(255, 254, 254);">
+        </div>
+    </section>
+    
+    <section id="products" class="products">
+        <div style="text-align: center; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: #e60000;">Ovens</h3>
+            <img src="Ovens.png" 
+                 alt="Ovens" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;
+                  box-shadow: 0 4px 10px rgb(255, 254, 254);">
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div style="text-align: center; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: #e60000;">Food Processor, Cutter, Peeler & Hand Mixer</h3>
+            <img src="Food Processor.png" 
+                 alt="Food Processor, Cutter, Peeler & Hand Mixer" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;
+                  box-shadow: 0 4px 10px rgb(255, 254, 254);">
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div style="text-align: center; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: #e60000;">Chillers, Freezers & Cold Rooms</h3>
+            <img src="Chillers.png" 
+                 alt="Chillers, Freezers & Cold Rooms" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;
+                  box-shadow: 0 4px 10px rgb(255, 254, 254);">
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div style="text-align: center; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: #e60000;">Chillers & Chest Freezers</h3>
+            <img src="chest freezers.png" 
+                 alt="Chillers & Chest Freezers" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;
+                  box-shadow: 0 4px 10px rgb(255, 254, 254);">
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div style="text-align: center; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: #e60000;">Pizza Preparation Tables, Bread Slicer & Pasta Maker</h3>
+            <img src="pizza maker.png" 
+                 alt="Pizza Preparation Tables, Bread Slicer & Pasta Maker" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;
+                  box-shadow: 0 4px 10px rgb(255, 254, 254);">
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div style="text-align: center; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: #e60000;">Juicer & Blenders</h3>
+            <img src="juicer.png" 
+                 alt="Juicer & Blenders" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;
+                  box-shadow: 0 4px 10px rgb(255, 254, 254);">
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div style="text-align: center; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: #e60000;">Coffee Machines, Grinders & Dishwashing Machines</h3>
+            <img src="Coffee Machines.png" 
+                 alt="Coffee Machines, Grinders & Dishwashing Machines" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;
+                  box-shadow: 0 4px 10px rgb(255, 254, 254);">
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div style="text-align: center; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: #e60000;">Food Warmers, Chafing Dish & other Kitchen Accessories</h3>
+            <img src="Food warmers.png" 
+                 alt="Food Warmers, Chafing Dish & other Kitchen Accessories" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;
+                  box-shadow: 0 4px 10px rgb(255, 254, 254);">
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div style="text-align: center; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: #e60000;">stainless steel Custom fabrications</h3>
+            <img src="custom fabrication.png" 
+                 alt="stainless steel Custom fabrications" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;
+                  box-shadow: 0 4px 10px rgb(255, 254, 254);">
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Installations</li>
+            <li>Energy Consulting</li>
+            <li>Delivery</li>
+            <li>Maintainance</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:estimation@energysuppliesandservice.com">estimation@energysuppliesandservice.com</a></p>
+
+        <p>Phone: +971 553544627/ +971 507902282
+        </p>
+        <p>Address: Abu Dhabi, United Arab Emirates.</p>
+        <div style="text-align: center; margin-top: 2rem;">
+            <div style="display: flex; align-items: center;">
+                <a href="https://wa.me/971553544627" target="_blank">
+                    <img src="WhatsApp.png" alt="Contact us through WhatsApp" 
+                         style="width: 200px; height: auto; border-radius: 10px;
+                          box-shadow: 0 4px 10px rgb(255, 254, 254);">
+                </a>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 Energy Supplies and Services. All rights reserved.</p>
+    </footer>
+</body>
+</html>
