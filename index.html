@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Energy Supplies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* General Styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif; /* Updated font */
             margin: 0;
             padding: 0;
             background: #f0f0f0;
@@ -49,6 +50,7 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
+            transition: color 0.3s ease; /* Added transition for color */
         }
         nav a::before {
             content: '';
@@ -62,6 +64,9 @@
         }
         nav a:hover::before {
             left: 0;
+        }
+        nav a:hover {
+            color: #020202; /* Change color on hover */
         }
         section {
             padding: 4rem 2rem;
@@ -96,7 +101,6 @@
             height: 3px;
             background: #e60000;
             margin: 0.5rem auto;
-            border-radius: 5px;
         }
         .services ul {
             list-style: none;
@@ -163,7 +167,6 @@
             transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            z-index: 0;
         }
         .contact button:hover::before {
             width: 0;
@@ -209,7 +212,7 @@
     <header>
         <img src="logo.jpg" alt="Company Logo" style="display: block; margin: 0 auto; max-width: 100%;">
     </header>
-    <img src="logo.jpg" alt="Company Logo" class="logo">
+<!-- Removed the fixed logo -->
 
     <nav>
         <a href="#about">About Us</a>
@@ -352,7 +355,6 @@
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <p>Email: <a href="mailto:estimation@energysuppliesandservice.com">estimation@energysuppliesandservice.com</a></p>
-
         <p>Phone: +971 553544627/ +971 507902282
         </p>
         <p>Address: Abu Dhabi, United Arab Emirates.</p>
@@ -364,11 +366,8 @@
                           box-shadow: 0 4px 10px rgb(255, 254, 254);">
                 </a>
             </div>
-
-
         </div>
     </section>
-
 
     <footer>
         <p>&copy; 2025 Energy Supplies and Services. All rights reserved.</p>
