@@ -11,10 +11,10 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #000; /* Changed to black */
-            color: #f0f0f0; /* Changed text color to light gray */
+            background: #f5f5f5;
+            color: #003366;
             scroll-behavior: smooth;
-            position: relative; /* Added for positioning */
+            position: relative;
         }
         header {
             color: #fff;
@@ -23,21 +23,20 @@
             position: relative;
             overflow: hidden;
         }
-        /* Particle background */
         #particles-js {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Ensure it stays behind other content */
+            z-index: -1;
         }
         nav {
             display: flex;
             justify-content: center;
-            background: #cc0000;
+            background: #be0910;
             padding: 0.5rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(1, 25, 84, 0.1);
         }
         nav a {
             color: #fff;
@@ -45,16 +44,16 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
-            transition: color 0.3s ease;
+            transition: background 0.3s ease;
         }
         nav a:hover {
-            color: #020202;
+            background: #000241;
         }
         section {
             padding: 4rem 2rem;
             margin: 2rem auto;
             max-width: 1200px;
-            background: #1a1a1a; /* Changed to dark gray */
+            background: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             opacity: 0;
@@ -72,97 +71,106 @@
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
-            color: #fff; /* Ensure heading is white */
+            color: #003366;
         }
         h2::after {
             content: '';
             display: block;
             width: 50px;
             height: 3px;
-            background: #e60000;
+            background: #be0910;
             margin: 0.5rem auto;
         }
-        .products {
+
+        /* Products Section */
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-        .product-card {
-            background: #333; /* Changed to dark gray */
-            border: 1px solid #444; /* Changed to darker border */
-            border-radius: 5px;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 2rem;
             padding: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+            justify-content: center;
         }
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        .product-link {
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit text color */
         }
-        .contact form {
+        .product-icon {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .contact input, .contact textarea {
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            background: #222; /* Changed to dark background */
-            color: #f0f0f0; /* Changed text color to light gray */
-        }
-        .contact input:focus, .contact textarea:focus {
-            border-color: #e60000;
-            outline: none;
-        }
-        .contact button {
-            padding: 0.75rem;
-            border: none;
-            border-radius: 5px;
-            background: #e60000;
-            color: #fff;
-            font-size: 1rem;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
             cursor: pointer;
-            transition: background 0.3s ease;
         }
-        .contact button:hover {
-            background: #cc0000;
+        .product-icon img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #be0910;
+            padding: 5px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        .product-icon h3 {
+            color: #003366;
+            font-size: 1rem;
+            margin: 0;
+            line-height: 1.3;
+            font-weight: 600;
+            text-decoration: none; /* Explicitly remove underline */
+        }
+        .product-icon:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .product-icon:hover h3 {
+            color: #e60000;
+        }
+
+        /* Footer Styles */
         footer {
-            background: #660000;
+            background-color: #003366;
             color: #fff;
             text-align: center;
             padding: 1rem 0;
-            position: relative;
+            margin-top: 2rem;
         }
+
         .social-links {
             margin-top: 1rem;
         }
+
         .social-links a {
-            margin: 0 10px;
             color: #fff;
             text-decoration: none;
+            margin: 0 10px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
         }
+
+        .social-links a:hover {
+            color: #ff2c2c;
+        }
+
+        /* Back to Top Button */
         .back-to-top {
+            display: none;
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #e60000;
+            padding: 10px 15px;
+            background-color: #be0910;
             color: #fff;
             border: none;
-            border-radius: 50%;
-            padding: 10px 15px;
+            border-radius: 5px;
             cursor: pointer;
-            display: none;
-            transition: background 0.3s ease;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
         }
+
         .back-to-top:hover {
-            background: #cc0000;
+            background-color: #000241;
         }
     </style>
 </head>
@@ -171,7 +179,7 @@
     <div id="particles-js"></div>
 
     <header>
-        <img src="logo.jpg" alt="Company Logo" style="display: block; margin: 0 auto; max-width: 100%;">
+        <img src="logo.png" alt="Company Logo" style="display: block; margin: 0 auto; width: 250px; height: auto;">
     </header>
 
     <nav>
@@ -199,46 +207,62 @@
     </section>
 
     <section id="products" class="products">
-        <h2>Products</h2>
-        <div class="product-card" onclick="showModal('Cooking Equipment', 'cooking equipment.png')">
-            <h3>Cooking Equipment</h3>
-            <img src="cooking equipment.png" alt="Cooking Equipment" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-        <div class="product-card" onclick="showModal('Ovens', 'Ovens.png')">
-            <h3>Ovens</h3>
-            <img src="Ovens.png" alt="Ovens" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-        <div class="product-card" onclick="showModal('Food Processor', 'Food Processor.png')">
-            <h3>Food Processor, Cutter, Peeler & Hand Mixer</h3>
-            <img src="Food Processor.png" alt="Food Processor" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-        <div class="product-card" onclick="showModal('Chillers', 'Chillers.png')">
-            <h3>Chillers, Freezers & Cold Rooms</h3>
-            <img src="Chillers.png" alt="Chillers" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-        <div class="product-card" onclick="showModal('Chest Freezers', 'chest freezers.png')">
-            <h3>Chillers & Chest Freezers</h3>
-            <img src="chest freezers.png" alt="Chillers & Chest Freezers" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-        <div class="product-card" onclick="showModal('Pizza Preparation Tables', 'pizza maker.png')">
-            <h3>Pizza Preparation Tables, Bread Slicer & Pasta Maker</h3>
-            <img src="pizza maker.png" alt="Pizza Preparation Tables" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-        <div class="product-card" onclick="showModal('Juicer & Blenders', 'juicer.png')">
-            <h3>Juicer & Blenders</h3>
-            <img src="juicer.png" alt="Juicer & Blenders" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-        <div class="product-card" onclick="showModal('Coffee Machines', 'Coffee Machines.png')">
-            <h3>Coffee Machines, Grinders & Dishwashing Machines</h3>
-            <img src="Coffee Machines.png" alt="Coffee Machines" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-        <div class="product-card" onclick="showModal('Food Warmers', 'Food warmers.png')">
-            <h3>Food Warmers, Chafing Dish & other Kitchen Accessories</h3>
-            <img src="Food warmers.png" alt="Food Warmers" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-        <div class="product-card" onclick="showModal('Custom Fabrications', 'custom fabrication.png')">
-            <h3>Stainless Steel Custom Fabrications</h3>
-            <img src="custom fabrication.png" alt="Custom Fabrications" style="max-width: 100%; height: auto; border-radius: 10px;">
+        <h2>Product Categories</h2>
+        <div class="products-grid">
+            <a href="products.html" class="product-link">
+                <div class="product-icon">
+                    <img src="pexels-asphotograpy-213162.jpg" alt="Cooking Equipment">
+                    <h3>Cooking Equipment</h3>
+                </div>
+            </a>
+            <a href="products.html" class="product-link">
+                <div class="product-icon">
+                    <img src="ovens.png" alt="Ovens">
+                    <h3>Ovens</h3>
+                </div>
+            </a>
+            <a href="products.html" class="product-link">
+                <div class="product-icon">
+                    <img src="Food Processor.png" alt="Food Processor">
+                    <h3>Food Processor</h3>
+                </div>
+            </a>
+            <a href="products.html" class="product-link">
+                <div class="product-icon">
+                    <img src="chillers.png" alt="Chillers">
+                    <h3>Chillers & Freezers</h3>
+                </div>
+            </a>
+            <a href="products.html" class="product-link">
+                <div class="product-icon">
+                    <img src="pizza table.png" alt="Pizza Tables">
+                    <h3>Pizza Preparation Tables</h3>
+                </div>
+            </a>
+            <a href="products.html" class="product-link">
+                <div class="product-icon">
+                    <img src="blenders.png" alt="Blenders">
+                    <h3>Juicer & Blenders</h3>
+                </div>
+            </a>
+            <a href="products.html" class="product-link">
+                <div class="product-icon">
+                    <img src="coffee machines.png" alt="Coffee Machines">
+                    <h3>Coffee Machines</h3>
+                </div>
+            </a>
+            <a href="products.html" class="product-link">
+                <div class="product-icon">
+                    <img src="Food warmers.png" alt="Food Warmers">
+                    <h3>Food Warmers</h3>
+                </div>
+            </a>
+            <a href="products.html" class="product-link">
+                <div class="product-icon">
+                    <img src="custom fabrication.png" alt="Fabrications">
+                    <h3>Custom Fabrications</h3>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -254,7 +278,7 @@
 
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:estimation@energysuppliesandservice.com" style="color: #f0f0f0;">estimation@energysuppliesandservice.com</a></p>
+        <p>Email: <a href="mailto:estimation@energysuppliesandservice.com" style="color: #003366;">estimation@energysuppliesandservice.com</a></p>
         <p>Phone: +971 553544627 / +971 507902282</p>
         <p>Address: Abu Dhabi, United Arab Emirates.</p>
         <div style="text-align: center; margin-top: 2rem;">
@@ -311,10 +335,15 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Show modal for product details
-        function showModal(title, imgSrc) {
-            alert(`Product: ${title}\nImage: ${imgSrc}`);
-        }
+        // Smooth scroll to section
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor click behavior
+                const targetId = this.getAttribute('href'); // Get the target section ID
+                const targetElement = document.querySelector(targetId); // Select the target section
+                targetElement.scrollIntoView({ behavior: 'smooth' }); // Scroll to the target section smoothly
+            });
+        });
     </script>
 </body>
 </html>
