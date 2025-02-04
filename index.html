@@ -82,6 +82,43 @@
             margin: 0.5rem auto;
         }
 
+        /* Companies Section */
+        .companies-section {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.companies-row {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content; /* Ensures smooth scrolling */
+    animation: moveImages 20s linear infinite;
+}
+
+.companies-row img {
+    height: 80px;
+    margin: 0 20px;
+    flex-shrink: 0;
+}
+
+/* Duplicate Animation */
+@keyframes moveImages {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+        /* Specific rows styling */
+        .row-1, .row-2, .row-3 {
+            animation-duration: 25s; /* Different speeds for visual interest */
+        }
+        .row-2 {
+            animation-direction: reverse;
+        }
+        .row-3 {
+            animation-duration: 30s;
+        }
         /* Products Section */
         .products-grid {
             display: grid;
@@ -204,6 +241,50 @@
             ENERGY SUPPLIES & SERVICES L.L.C understands their requirement & suggesting the apt option, not just selling.
              To be the premier branded corporations we are distinctive, highly innovative, and successful in serving our 
              customers by giving more value, whether measured by price, performance, or quality of service.</p>
+    </section>
+
+    <section id="companies" class="companies-section">
+        <div class="companies-row">
+            <img src="dood.jpeg".jpeg" alt="Company 1">
+            <img src="2 s.png" alt="Company 2">
+            <img src="3 s.png" alt="Company 3">
+            <img src="4 s.png" alt="Company 4">
+            <img src="5 s.jpeg" alt="Company 5">
+            <img src="6 s.png" alt="Company 6">
+
+            <img src="dood.jpeg".jpeg" alt="Company 1">
+            <img src="2 s.png" alt="Company 2">
+            <img src="3 s.png" alt="Company 3">
+            <img src="4 s.png" alt="Company 4">
+            <img src="5 s.jpeg" alt="Company 5">
+            <img src="6 s.png" alt="Company 6">
+        </div>
+        <div class="companies-row">
+            <img src="7 s.jpeg" alt="Company 7">
+            <img src="8 s.png" alt="Company 8">
+            <img src="9 s.png" alt="Company 9">
+            <img src="10 s.png" alt="Company 10">
+            <img src="11 s.png" alt="Company 11">
+            <img src="12 s.jpeg" alt="Company 12">
+
+            <img src="7 s.jpeg" alt="Company 7">
+            <img src="8 s.png" alt="Company 8">
+            <img src="9 s.png" alt="Company 9">
+            <img src="10 s.png" alt="Company 10">
+            <img src="11 s.png" alt="Company 11">
+            <img src="12 s.jpeg" alt="Company 12">
+        </div>
+        <div class="companies-row">
+            <img src="13 s.png" alt="Company 13">
+            <img src="14 s.png" alt="Company 14">
+            <img src="15 s.png" alt="Company 15">
+            <img src="16 s.jpeg" alt="Company 16">
+
+            <img src="13 s.png" alt="Company 13">
+            <img src="14 s.png" alt="Company 14">
+            <img src="15 s.png" alt="Company 15">
+            <img src="16 s.jpeg" alt="Company 16">
+        </div>
     </section>
 
     <section id="products" class="products">
